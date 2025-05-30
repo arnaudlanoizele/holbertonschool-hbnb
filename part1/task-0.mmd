@@ -1,5 +1,12 @@
-%% Diagramme en couches de l'application HBnB
+# High-Level Architecture Diagram
 
+Overview
+
+This document describes the high-level architecture of a software system, focusing on the separation of concerns across different layers.
+
+## Architecture Layers
+
+'''mermaid
 classDiagram
     %% Présentation
     class PresentationLayer["Presentation Layer"] {
@@ -33,3 +40,22 @@ classDiagram
     PresentationLayer --> BusinessFacade : uses
     BusinessFacade --> BusinessLogicLayer : manages
     BusinessLogicLayer --> PersistenceLayer : accesses
+'''
+
+## Layer Descriptions
+
+1. **Presentation Layer**
+    - Handles user interactions and API endpoints
+    - Manages request/response formatting
+
+2. **Business Logic Layer**
+   - Contains core business logic and models
+   - Implements business rules and validations
+
+3. **Persistence Layer**
+    - Manages data storage and retrieval
+    - Provides data access methods
+
+## Communication Flow
+
+The BusinessFacade pattern simplifies the interaction between layers by providing a unified interface for the presentation layer to access business operations.
