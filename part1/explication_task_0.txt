@@ -1,0 +1,70 @@
+1. presentaion Layer
+
+C'est quoi?
+    - C'est la couche d'interraction avec l'utilisateur final
+    - Elle explore des services web ou des API Rest que les clients
+       (navigateur, application mobile) peuvent appeler
+
+Son rôle:
+    - Recevoir des requêtes HTTP, les valider
+    - Appeler la façade pour exécuter la logique métier
+    - Et retourner une reponse (Json)
+
+Ce qu'elle contient:
+    - Web service: Flask, Fast API
+    - API Endpoints: Users, places, review
+___
+2. Business logic Layyer
+
+C'est quoi?
+    C'est le coeur de l'application: la oû se trouve les règles,
+       les validations, et le commerce
+
+Son rôle:
+    - Contient les modules métiers (User, place, review)
+    - Implémente les règles de gestions. exp:
+        * Un utilisateur ne peut pas laisser 2 reviews pour le même logique
+        * Une reservation ne peut pas être faite si les 2 dates se chevauche
+
+Ce qu'elle contient
+    - Domaine Models: classes comme user, place, Amenety
+    - Business Rules: validations des input, logic métier
+___
+3.Persistance Layer
+
+C'est quoi?
+    - La couche qui s'occupe de stocker, lire et écrire les données
+
+Son rôle:
+    - Fournir un accès à la base de données, que ce soit:
+        une base SQLite, MySQL ou
+        une couche mémoir (FileStorage)
+    - Gérer les CRUD de bas niveau (Create, Read, Update, Delete)
+
+Ce quelle contient:
+    - Data Storage: les fichier.json ou les tables MySQL
+    - Data Access: fonctions pour interroger la base, exp: get(), save()
+___
+4. Interface: BusinessFacade
+
+C'est quoi?
+    Une façade, c'est à dire une interface simplifiée entre
+    la présentation et la logique métier
+
+Son rôle: 
+    - Centraliser tous les appels de l'API vers la logique métier
+    - Cacher la complexité interne des modèles et des règles
+    - Proposer une API simple, exp: get_user, create review, book_place
+___
+Avantage:
+    - La couche de présentation ne connaît pas les modèles
+    - Si la logique métier change, aucun impact sur les Endpoints
+___
+* Flask est un micro-framework web en python.
+    - Il permet de créer des services web, c'est à dire des application capable de:
+    Recevoir des requêtes HTTP (get, post)
+    Executer du code python
+    Et renvoyer des réponses HTTP (souvent du Json ou HTML)
+" Service Flask"
+    => Un point d'entrée dans ton application (un endpoint) qui
+        permet à un utilisateur ou client d'interagir avec l'application via URL 
