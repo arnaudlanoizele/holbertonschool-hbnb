@@ -1,4 +1,4 @@
-<span style="color:teal">1. presentaion Layer</span>
+1. presentaion Layer
 
 C'est quoi?
     - C'est la couche d'interraction avec l'utilisateur final
