@@ -5,7 +5,7 @@ classDiagram
     }
 
     class User {
-
+        +email: String
     }
 
     class Place {

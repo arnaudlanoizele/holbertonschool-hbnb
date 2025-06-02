@@ -1,0 +1,30 @@
+classDiagram
+    %% Main Layers
+    class PresentationLayer["Presentation Layer"] {
+        <<Package>>
+        Web Services
+        API Endpoints
+    }
+    class BusinessLogicLayer["Business Logic Layer"] {
+        <<Package>>
+        Domain Models
+        Business Rules
+    }
+    class PersistenceLayer["Persistence Layer"] {
+        <<Package>>
+        Data Storage
+        Data Access
+    }
+
+    %% Facade
+    class BusinessFacade {
+        <<Interface>>
+        CRUD Operations
+        Business Operations
+    }
+
+    %% Relationships
+    PresentationLayer --> BusinessFacade : uses
+    BusinessFacade --> BusinessLogicLayer : manages
+    BusinessLogicLayer --> PersistenceLayer : accesses
+```
